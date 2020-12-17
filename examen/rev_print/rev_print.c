@@ -6,33 +6,31 @@
 /*   By: hzheng <hzheng@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 13:40:40 by hzheng            #+#    #+#             */
-/*   Updated: 2020/12/11 14:10:43 by hzheng           ###   ########.fr       */
+/*   Updated: 2020/12/17 20:12:37 by hzheng           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	rev_print(char *str)
+void	rev_print(char *str)
 {
 	int x;
 
 	x = 0;
 	while (str[x] != '\0')
-	{
 		x++;
-	}
 	while (x > 0)
 	{
 		write(1, &str[x - 1], 1);
 		x--;
 	}
-	return(0);
 }
 
-int	main(void)
+int	main(int ac, char *av[])
 {
-	rev_print("ponies are awesome");
-	write(1, "\n", 1);
-	rev_print("");
+	if (ac == 2)
+	{
+		rev_print(av[1]);
+	}
 	write(1, "\n", 1);
 }
